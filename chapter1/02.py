@@ -1,7 +1,9 @@
-import re
+str1 = 'パトカー'
+str2 = 'タクシー'
 
-sentence = "Now I need a drink, alcoholic of course, after the heavy lectures involving quantum mechanics."
-word_list = []
+extracted = []
+for i in range(0, 4):
+    extracted.append(str1[i])
+    extracted.append(str2[i]) 
 
-for str in sentence.split():
-    word_list.append(str.strip('[,.]'))
+print(''.join(extracted))
