@@ -11,12 +11,15 @@ def wiki_reader(title, json_data):
                 return obj['text']
 
 def is_category(string):
-    return re.match(r'^\[\[Category:+\]\]', string)
+    return re.match(r'^\[\[Category:.+\]\]', string)
 
 def main():
     text = wiki_reader('イギリス', 'data/jawiki-country.json.gz').split('\n')
     for line in text:
         if is_category(line):
-            print(line)
+            if re.match(r'.*\|\*\]\]$', line):
+                print(line[11:-4])
+            else:
+                print(line[11:-2])
 
 main()
